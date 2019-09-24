@@ -4,13 +4,53 @@
     <meta charset="UTF=8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
-    <title>Axel.io</title> 
+
+    <style>
+    p {
+    color: #003399;
+    }
+    </style>
+
+    <style>
+    .dot {
+    height: 50px;
+    width: 50px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    }
+    </style>
+    <title>notagar.io</title>
 </head>
 <body>
-    Username <input type="text" id="name" name="name" required
-    minlength="3" maxlength="16" size="16"> <br> <br>
-    Password <input type="password" id="name" name="name" required
-    minlength="4" maxlength="32" size="16"> <br> <br>
+    <div style="text-align:center">
+    <h1><p>notagar.io</p></h1>
+​
+    Username: <input type="text" id="name" name="name" required
+    minlength="3" maxlength="16" size="16"> (Minimum length 3) <br> <br>
+​
+    Password: <input type="password" id="name" name="name" required
+    minlength="4" maxlength="32" size="16"> (Minimum length 4) <br> <br>
+​
+    <label for="select">Choose your colour:</label>
+    <select class="select" name="select" required>
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+      <option value="yellow">Yellow</option>
+      <option value="purple">Purple</option>
+      <option value="orange">Orange</option>
+    </select>
+​
+    <br> <br>
+
+    <span class="dot"></span> <br> <br>
+
     <input type="button" value="Sign in"> <br>
-</body>
+</body> <br>
+​
+<footer>
+  <p style="color: #4D4D4D"> Tekijänoikeus-infoa 2019.</p>
+</footer>
+</div>
 </html>
