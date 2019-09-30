@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+
+</head>
+
+<body>
+  <script>
+var pallo;
+
+var pallot = [];
+var zoom = 1;
+
+function setup() {
+  createCanvas(1920, 1080);
+  pallo = new Pallo(0, 0, 64);
+  for (var i = 0; i < 200; i++) {
+    var x = random(-width,width);
+    var y = random(-height,height);
+    pallot[i] = new Pallo(x, y, 16);
+  }
+}
+
+function draw() {
+  background(255);
+
+  translate(width/2, height/2);
+  var newzoom = 64 / pallo.r;
+  zoom = lerp(zoom, newzoom, 0.1);
+  scale(zoom);
+  translate(-pallo.pos.x, -pallo.pos.y);
+
+  for (var i = pallot.length-1; i >=0; i--) {
+    pallot[i].show();
+    if (pallo.eats(pallot[i])) {
+      pallot.splice(i, 1);
+    }
+  }
+
+
+  pallo.show();
+  pallo.update();
+
+}
+function Pallo(x, y, r) {
+  this.pos = createVector(x, y);
+  this.r = r;
+  this.vel = createVector(0,0);
+
+  this.update = function() {
+    var newvel = createVector(mouseX-width/2, mouseY-height/2);
+    newvel.setMag(3);
+    this.vel.lerp(newvel, 0.2);
+    this.pos.add(this.vel);
+  }
+
+  this.eats = function(other) {
+    var d = p5.Vector.dist(this.pos, other.pos);
+    if (d < this.r + other.r) {
+      var sum = PI * this.r * this.r + PI * other.r * other.r;
+      this.r = sqrt(sum / PI);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  this.show = function() {
+    fill(0);
+    ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
+  }
+}
+  </script>
+</body>
+
+</html>
