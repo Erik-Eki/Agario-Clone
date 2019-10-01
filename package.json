@@ -1,0 +1,23 @@
+{
+  "name": "team-axel",
+  "version": "0.0.1",
+  "description": "Agar.io clone game",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.dclabra.fi:agario-ttv19sai/team-axel.git"
+  },
+  "keywords": [
+    "agario",
+    "javascript",
+    "mocha",
+    "chai",
+    "tdd"
+  ],
+  "author": "Axel Savolainen <axelsavolainen@kamk.fi>",
+  "license": "MIT"
+}
