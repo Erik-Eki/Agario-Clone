@@ -19,5 +19,11 @@
     "tdd"
   ],
   "author": "Axel Savolainen <axelsavolainen@kamk.fi>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "express": "^4.17.1",
+    "mocha": "^6.2.1"
+  }
 }
